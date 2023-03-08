@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /articles/01-📗 前端
+      link: /articles/01-📗 前端/
 
 features:
   - icon: ⚡️

@@ -23,4 +23,4 @@ Notice: Deployment failed! ❌
 
 在"工作流权限(Workflow permissions)"中，选择 Read and write permissions
 
-<image src='./asserts/1.png' data-fancybox='gallery'/>
+![](asserts/1.png)
