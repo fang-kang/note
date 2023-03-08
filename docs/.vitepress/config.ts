@@ -50,7 +50,7 @@ export default defineConfig({
     darkModeSwitchLabel: '外观',
     sidebarMenuLabel: '归档',
     editLink: {
-      pattern: `${github}/tree/master/docs/:path`,
+      pattern: `${github}/tree/main/docs/:path`,
       text: '在 GitHub 上编辑此页',
     },
     outlineTitle: '导航栏',
