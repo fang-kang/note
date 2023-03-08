@@ -4,6 +4,7 @@ import updateInfo from './watchJson.json'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
 import { description, github, keywords, name } from './meta'
 import socialLinks from './link'
+import algolia from './algolia'
 
 console.log('【updateInfo】', updateInfo)
 
@@ -30,8 +31,6 @@ export default defineConfig({
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
     ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    ['link', { rel: 'mask-icon', href: '/logo.svg', color: '#06f' }],
-    ['meta', { name: 'theme-color', content: '#06f' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css' }],
     ['script', { src: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js' }],
   ],
@@ -41,6 +40,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     socialLinks,
+    algolia,
     docFooter: {
       prev: '上一篇',
       next: '下一篇',
