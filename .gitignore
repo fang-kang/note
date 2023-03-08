@@ -9,4 +9,4 @@ dist
 *.log
 .temp
 cache
-watchJson.json
+docs/.vitepress/watchJson.json
