@@ -1,0 +1,12 @@
+node_modules
+.fleet
+cache
+.history
+.idea
+.vscode
+dist
+.DS_Store
+*.log
+.temp
+cache
+watchJson.json

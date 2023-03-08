@@ -1,0 +1,41 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "This is my personal note",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs --port 7910",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "watchChangeRestartVitepress": "node ./docs/.vitepress/watchChangeRestartVitepress.mjs"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "homepage": "https://fang-kang.github.io/note/",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@types/react",
+        "react",
+        "react-dom",
+        "@algolia/client-search"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^18.14.6",
+    "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "chokidar": "^3.5.3",
+    "markdown-it": "^13.0.1",
+    "markdown-it-custom-attrs": "^1.0.2",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "unocss": "^0.50.4",
+    "vite": "^4.1.4",
+    "vite-plugin-vitepress-demo": "2.0.0-alpha.8",
+    "vitepress": "1.0.0-alpha.50",
+    "vitepress-plugin-search": "1.0.4-alpha.19",
+    "vue": "^3.2.47"
+  }
+}
