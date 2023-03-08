@@ -22,7 +22,7 @@
 
 ## 3.在文档中填写 key
 
-在上一步我们获取了公开的 key，在这里我们就来配置一下，将上述的 `Search-Only API Key`  填到 apiKey 字段中，**私有的 key 不要填！**
+在上一步我们获取了公开的 key，在这里我们就来配置一下，将上述的 `Search-Only API Key` 填到 apiKey 字段中，**私有的 key 不要填！**
 
 修改文件在 `docs/.vitepress/config` 文件中
 
@@ -38,7 +38,7 @@ algolia: {
 
 ## 4.私钥放在 Github Secrets 中
 
-将上述获取的 `Admin API Key` 添加到 Github Secrets 中，如下图所示，创建 `API_KEY` 和 `APPLICATION_ID` 两个字段，一会在 ci 中会使用到。
+将上述获取的 `Admin API Key` 和 `Application ID` 分别添加到 Github Secrets 中，如下图所示，创建 `API_KEY` 和 `APPLICATION_ID` 两个字段，一会在 ci 中会使用到。
 
 ![](asserts/6.png)
 
@@ -100,6 +100,31 @@ jobs:
 解释一下：这里 yml 就是使用 Github Actions 在 Docker 中执行的 AlgoliaDocSearch scraper action，当我们推送到 main 分支时就会立即执行这个任务，当然如果你是 master 分支只需要修改 branches 那里的值即可。
 
 :::
+
+## 7.配置好后搜索不生效
+
+原因：
+
+![](asserts/8.jpg)
+
+## 8.依旧使用 algolia
+
+基于官方的（也是上文图中最后一段所说）DocSearch 来爬取数据，申请地址如下：
+
+[申请地址](https://docsearch.algolia.com/apply/)
+
+> 如果表单提交不成功，需要使用科学上网。
+
+这里有几点需要注意：
+
+- 您必须是该网站的所有者，或至少有更新其内容的权限
+- 你的网站必须是公开的
+- 你的网站必须是一个开源项目或技术博客的技术文档，不授权于商业内容
+- 你的网站必须到生产环境
+
+其实一般是 GitHub 上的开源项目都会申请通过的，我是大概等了 2 天样子，会收到如下类似的邮件回复，根据 key 和 id 来替换过去旧的即可。
+
+![](asserts/7.jpg)
 
 ## 7.参考链接
 
