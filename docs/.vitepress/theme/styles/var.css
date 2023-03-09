@@ -80,3 +80,7 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand) !important;
 }
+
+.vp-doc h3 {
+  margin: 15px 0 !important;
+}

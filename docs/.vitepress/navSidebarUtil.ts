@@ -83,7 +83,7 @@ export function getSidebarData(sidebarGenerateConfig: SidebarGenerateConfig = {}
     let subDirFullName = join(dirFullPath, dirName)
 
     const property = getDocsDirNameAfterStr(subDirFullName).replace(/\\/g, '/') + '/'
-    const arr = getSideBarItemTreeData(subDirFullName, 1, 2, ignoreFileName, ignoreDirNames)
+    const arr = getSideBarItemTreeData(subDirFullName, 1, 3, ignoreFileName, ignoreDirNames)
 
     obj[property] = arr
   })

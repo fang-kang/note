@@ -36,7 +36,7 @@ build/          表示忽略 build/目录下的所有文件，过滤整个build�
 config.php:     表示忽略当前路径的 config.php 文件
 ```
 
-6.** 匹配多级目录，可在开始，中间，结束
+6.\*\* 匹配多级目录，可在开始，中间，结束
 
 ```bash
 **/foo:         表示忽略/foo,a/foo,a/b/foo等
