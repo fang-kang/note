@@ -27,6 +27,7 @@
     "@types/node": "^18.14.6",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "chokidar": "^3.5.3",
+    "flexsearch": "^0.7.31",
     "markdown-it": "^13.0.1",
     "markdown-it-custom-attrs": "^1.0.2",
     "prettier": "^2.8.4",
@@ -34,7 +35,8 @@
     "unocss": "^0.50.4",
     "vite": "^4.1.4",
     "vite-plugin-vitepress-demo": "2.0.0-alpha.8",
-    "vitepress": "1.0.0-alpha.36",
+    "vitepress": "1.0.0-alpha.51",
+    "vitepress-plugin-search": "1.0.4-alpha.19",
     "vue": "^3.2.47"
   }
 }

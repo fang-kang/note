@@ -4,7 +4,7 @@ import updateInfo from './watchJson.json'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
 import { description, github, keywords, name } from './meta'
 import socialLinks from './link'
-import algolia from './algolia'
+// import algolia from './algolia'
 
 console.log('【updateInfo】', updateInfo)
 
@@ -40,15 +40,15 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     socialLinks,
-    algolia,
+    // algolia,
     docFooter: {
       prev: '上一篇',
       next: '下一篇',
     },
-    // returnToTopLabel: '返回顶部',
+    returnToTopLabel: '返回顶部',
     lastUpdatedText: '最后更新',
-    // darkModeSwitchLabel: '外观',
-    // sidebarMenuLabel: '归档',
+    darkModeSwitchLabel: '外观',
+    sidebarMenuLabel: '归档',
     editLink: {
       pattern: `${github}/tree/main/docs/:path`,
       text: '在 GitHub 上编辑此页',

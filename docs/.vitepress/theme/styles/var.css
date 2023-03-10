@@ -97,6 +97,7 @@
   background: transparent;
   transition: border-color 0.25s;
 }
+
 @media (min-width: 768px) {
   .DocSearch-Button {
     justify-content: flex-start;
