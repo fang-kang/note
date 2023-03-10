@@ -12,7 +12,7 @@ export default defineConfig({
   title: name,
   description,
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
     config: md => {
       md.use(mdItCustomAttrs, 'image', {
         'data-fancybox': 'gallery',
