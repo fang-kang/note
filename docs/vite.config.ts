@@ -1,7 +1,6 @@
 import { ConfigEnv, defineConfig } from 'vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from 'unocss/vite'
-// import { SearchPlugin } from 'vitepress-plugin-search'
 import { presetAttributify, presetIcons, presetTypography, presetUno } from 'unocss'
 import { VitePluginVitepressDemo } from 'vite-plugin-vitepress-demo'
 import { resolve } from 'path'

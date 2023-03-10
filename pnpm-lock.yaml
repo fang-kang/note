@@ -13,7 +13,6 @@ specifiers:
   vite: ^4.1.4
   vite-plugin-vitepress-demo: 2.0.0-alpha.8
   vitepress: 1.0.0-alpha.36
-  vitepress-plugin-search: 1.0.4-alpha.19
   vue: ^3.2.47
 
 devDependencies:
@@ -29,7 +28,6 @@ devDependencies:
   vite: 4.1.4_@types+node@18.14.6
   vite-plugin-vitepress-demo: 2.0.0-alpha.8_6x3e76uihs3srp6zyj3uohs2ma
   vitepress: 1.0.0-alpha.36_@types+node@18.14.6
-  vitepress-plugin-search: 1.0.4-alpha.19_6x3e76uihs3srp6zyj3uohs2ma
   vue: 3.2.47
 
 packages:
@@ -797,10 +795,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: true
-
-  /@types/flexsearch/0.7.3:
-    resolution: {integrity: sha512-HXwADeHEP4exXkCIwy2n1+i0f1ilP1ETQOH5KDOugjkTFZPntWo0Gr8stZOaebkxsdx+k0X/K6obU/+it07ocg==}
     dev: true
 
   /@types/linkify-it/3.0.2:
@@ -2143,21 +2137,6 @@ packages:
       rollup: 3.18.0
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
-
-  /vitepress-plugin-search/1.0.4-alpha.19_6x3e76uihs3srp6zyj3uohs2ma:
-    resolution: {integrity: sha512-WFOPn5dStyMINd+rVjNxbEmGa7U+qGHLxLnda56EG+ATil1i0yOauGhJEh5LPMvuCUVIA9tInJnFXklOBb39dA==}
-    engines: {node: ^14.13.1 || ^16.7.0 || >=18}
-    peerDependencies:
-      flexsearch: ^0.7.31
-      vitepress: ^1.0.0-alpha.13
-      vue: '3'
-    dependencies:
-      '@types/flexsearch': 0.7.3
-      '@types/markdown-it': 12.2.3
-      markdown-it: 13.0.1
-      vitepress: 1.0.0-alpha.36_@types+node@18.14.6
-      vue: 3.2.47
     dev: true
 
   /vitepress/1.0.0-alpha.36_@types+node@18.14.6:

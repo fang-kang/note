@@ -36,7 +36,7 @@ export default defineConfig({
   ],
   base: '/note/',
   lang: 'zh-CN',
-  lastUpdated: true,
+  lastUpdated: false,
   themeConfig: {
     logo: '/logo.svg',
     socialLinks,
@@ -45,10 +45,10 @@ export default defineConfig({
       prev: '上一篇',
       next: '下一篇',
     },
-    returnToTopLabel: '返回顶部',
+    // returnToTopLabel: '返回顶部',
     lastUpdatedText: '最后更新',
-    darkModeSwitchLabel: '外观',
-    sidebarMenuLabel: '归档',
+    // darkModeSwitchLabel: '外观',
+    // sidebarMenuLabel: '归档',
     editLink: {
       pattern: `${github}/tree/main/docs/:path`,
       text: '在 GitHub 上编辑此页',
