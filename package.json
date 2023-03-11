@@ -7,7 +7,8 @@
     "docs:dev": "vitepress dev docs --port 7910",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "watchChangeRestartVitepress": "node ./docs/.vitepress/watchChangeRestartVitepress.mjs"
+    "watchChangeRestartVitepress": "node ./docs/.vitepress/watchChangeRestartVitepress.mjs",
+    "release": "release-it"
   },
   "keywords": [],
   "license": "ISC",
