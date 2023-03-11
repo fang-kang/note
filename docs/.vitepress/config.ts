@@ -36,7 +36,7 @@ export default defineConfig({
   ],
   base: '/note/',
   lang: 'zh-CN',
-  lastUpdated: true,
+  lastUpdated: false,
   themeConfig: {
     logo: '/logo.svg',
     socialLinks,

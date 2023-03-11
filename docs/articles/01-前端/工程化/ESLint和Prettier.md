@@ -578,7 +578,7 @@ lint-staged，它只对git暂存区的文件执行linter检测，相对每次执
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{js,jsx,tsx}": [
       "eslint --fix",
       "git add"
     ]
