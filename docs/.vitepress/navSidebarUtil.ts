@@ -27,10 +27,6 @@ interface SideBarItem {
 
 interface NavGenerateConfig {
   /**
-   * 是否启用路由匹配显示激活状态. 默认:false
-   */
-  enableDirActiveMatch: boolean
-  /**
    * 需要遍历的目录. 默认:articles
    */
   dirName?: string
@@ -79,6 +75,7 @@ export function getSidebarData(sidebarGenerateConfig: SidebarGenerateConfig = {}
   const dirFullPath = resolve(__dirname, `../${dirName}`)
   const allDirAndFileNameArr = readdirSync(dirFullPath)
   const obj = {}
+
   allDirAndFileNameArr.map(dirName => {
     let subDirFullName = join(dirFullPath, dirName)
 
@@ -138,10 +135,10 @@ function getSideBarItemTreeData(
   return result
 }
 
-export function getNavData(navGenerateConfig: NavGenerateConfig) {
-  const { enableDirActiveMatch, dirName = 'articles', maxLevel = 2 } = navGenerateConfig
+export function getNavData(navGenerateConfig: NavGenerateConfig = {}) {
+  const { dirName = 'articles', maxLevel = 2 } = navGenerateConfig
   const dirFullPath = resolve(__dirname, `../${dirName}`)
-  const result = getNavDataArr(dirFullPath, 1, maxLevel, enableDirActiveMatch)
+  const result = getNavDataArr(dirFullPath, 1, maxLevel)
 
   return result
 }
@@ -152,16 +149,9 @@ export function getNavData(navGenerateConfig: NavGenerateConfig) {
  * @param   {string}     dirFullPath  当前需要遍历的目录绝对路径
  * @param   {number}     level        当前层级
  * @param   {number[]}   maxLevel     允许遍历的最大层级
- * @param   {boolean}    enableActiveMatch 是否启用路由匹配显示激活状态
- *
  * @return  {NavItem[]}               导航数据数组
  */
-function getNavDataArr(
-  dirFullPath: string,
-  level: number,
-  maxLevel: number,
-  enableActiveMatch: boolean
-): DefaultTheme.NavItem[] {
+function getNavDataArr(dirFullPath: string, level: number, maxLevel: number): DefaultTheme.NavItem[] {
   // 获取所有文件名和目录名
   const allDirAndFileNameArr = readdirSync(dirFullPath)
   const result: DefaultTheme.NavItem[] = []
@@ -179,20 +169,17 @@ function getNavDataArr(
         text,
         link: `${link}/`,
       }
-      if (level !== maxLevel) {
-        const arr = getNavDataArr(fileOrDirFullPath, level + 1, maxLevel, enableActiveMatch).filter(
-          v => v.text !== 'index.md'
-        )
 
+      if (level !== maxLevel) {
+        const arr = getNavDataArr(fileOrDirFullPath, level + 1, maxLevel).filter(v => v.text !== 'index.md')
         if (arr.length > 0) {
           // @ts-ignore
           dirData.items = arr
           delete dirData.link
         }
       }
-      if (enableActiveMatch) {
-        dirData.activeMatch = link + '/'
-      }
+
+      dirData.activeMatch = link + '/'
       result.push(dirData)
     } else if (isMarkdownFile(fileOrDirName)) {
       // 当前为文件
@@ -200,9 +187,7 @@ function getNavDataArr(
         text,
         link,
       }
-      if (enableActiveMatch) {
-        fileData.activeMatch = link + '/'
-      }
+      fileData.activeMatch = link + '/'
       result.push(fileData)
     }
   })

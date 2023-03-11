@@ -36,7 +36,7 @@ export default defineConfig({
   ],
   base: '/note/',
   lang: 'zh-CN',
-  lastUpdated: false,
+  lastUpdated: true,
   themeConfig: {
     logo: '/logo.svg',
     socialLinks,
@@ -47,7 +47,7 @@ export default defineConfig({
     },
     returnToTopLabel: '返回顶部',
     lastUpdatedText: '最后更新',
-    darkModeSwitchLabel: '外观',
+    darkModeSwitchLabel: '主题',
     sidebarMenuLabel: '归档',
     editLink: {
       pattern: `${github}/tree/main/docs/:path`,
@@ -55,7 +55,7 @@ export default defineConfig({
     },
     outlineTitle: '导航栏',
     outline: 'deep',
-    nav: getNavData({ enableDirActiveMatch: true }),
+    nav: getNavData(),
     sidebar: getSidebarData(),
   },
 })
