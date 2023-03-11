@@ -79,6 +79,12 @@ git add *
 git commit -m "your useful commit message"
 ```
 
+绕过`githooks`检测
+
+```bash
+git commit -m "your useful commit message" --no-verify
+```
+
 ### 7. git status
 
 使用此`Git`命令可以方便地查看有多少文件需要得到关注。你可以随时运行此命令。
