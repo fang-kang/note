@@ -1,0 +1,1 @@
+import{_ as i,c as l,o as e,a as t}from"./app.204b65b3.js";const m=JSON.parse('{"title":"vscode 常用插件","description":"","frontmatter":{},"headers":[],"relativePath":"articles/03-收藏/常用/vscode常用插件.md"}'),s={name:"articles/03-收藏/常用/vscode常用插件.md"},n=t("",2),a=[n];function o(r,p,c,S,d,u){return e(),l("div",null,a)}const h=i(s,[["render",o]]);export{m as __pageData,h as default};
