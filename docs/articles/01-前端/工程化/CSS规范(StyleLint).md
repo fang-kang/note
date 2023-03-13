@@ -6,19 +6,19 @@
 
 Stylelint 是一个强大的，现代的代码检查工具，与 ESLint 类似，Stylelint 能够通过定义一系列的编码风格规则帮助我们避免在样式表中出现错误。
 
-目前在开源社区上，关于 CSS Lint 的解决方案主要包括了 csslint、SCSS-Lint 和 Stylelint 等几种。而由于 Stylelint 在技术架构上基于 AST 的方式扩展 CSS，除原生 CSS 语法，其也支持 SCSS、Less 这类预处理器，并且也有非常多的第三方插件，因此我们团队选择了 Stylelint 作为 CSS Lint 工具。
+目前在开源社区上，关于 CSS Lint 的解决方案主要包括了 csslint、SCSS-Lint 和 Stylelint 等几种。而由于 Stylelint 在技术架构上基于 AST 的方式扩展 CSS，除原生 CSS 语法，其也支持 SCSS、Less 这类预处理器，并且也有非常多的第三方插件，因此选择了 Stylelint 作为 CSS Lint 工具。
 
 官方文档：<https://stylelint.io/>
 
 ### 1.2 安装 Stylelint
 
 - stylelint：核心包
-- stylelint-config-standard：共享的常见的css书写规范（标准）
-- stylelint-config-recommended：共享的常见的css书写规范（推荐）
-- stylelint-config-recommended-scss:推荐的scss增强
-- stylelint-config-recommended-vue:推荐的vue增强
-- stylelint-config-prettier：关闭所有不必要的或者有可能与Prettier冲突的规则
-- stylelint-order：提供给css属性排序的功能
+- stylelint-config-standard：共享的常见的 css 书写规范（标准）
+- stylelint-config-recommended：共享的常见的 css 书写规范（推荐）
+- stylelint-config-recommended-scss:推荐的 scss 增强
+- stylelint-config-recommended-vue:推荐的 vue 增强
+- stylelint-config-prettier：关闭所有不必要的或者有可能与 Prettier 冲突的规则
+- stylelint-order：提供给 css 属性排序的功能
 - postcss：postcss-html 的依赖包，可以用于转换 css 代码
 - postcss-html：用于解析 HTML（和类似 HTML）的 PostCSS 语法，可以用于识别 html 或者 vue 中的样式
 - stylelint-config-html：Stylelint 的可共享 HTML 配置。
@@ -29,7 +29,7 @@ npm i -D stylelint stylelint-config-standard stylelint-config-recommended stylel
 
 ### 1.3 安装适配预处理语法的插件
 
-如果我们项目中采用了如 sass 或 less 等 css 预处理器，那么可以安装适配预处理语法的插件。以 sass 为例，需要安装 stylelint-scss 插件。
+如果我们项目中采用了如 `sass` 或 `less` 等 `css` 预处理器，那么可以安装适配预处理语法的插件。以 `sass` 为例，需要安装 `stylelint-scss` 插件。
 
 ```bash
 npm install stylelint-scss --save-dev
@@ -52,9 +52,9 @@ npm install stylelint-scss --save-dev
   在.stylelintrc.js 文件中，我们可以指定要配置的内容，下面给出了一个配置文件的例子。
 
   其中，该配置文件采用了 stylelint-config-standard 标准配置，并且添加了 stylelint-order 插件用于 CSS 属性排序，在 rules 中，可以指定声明块内属性的顺序，也可以自定义 CSS 检查规则。比如定义了 color-hex-case 为 lower，表示 CSS 文件的颜色值都必须小写，否则会报错。
-  
+
   依赖安装：
-  
+
   ```json
    "devDependencies": {
       "postcss": "^8.4.12",
@@ -72,8 +72,6 @@ npm install stylelint-scss --save-dev
       "stylelint-order": "^5.0.0",
   }
   ```
-  
-  
 
 ```js
 module.exports = {
@@ -84,23 +82,22 @@ module.exports = {
     'stylelint-config-recommended-vue/scss',
     'stylelint-config-recommended-less',
     'stylelint-config-recommended-scss',
- 
   ],
   plugins: ['stylelint-order'],
   overrides: [
     {
-      "files": ["**/*.vue"],
-      "customSyntax": "postcss-html"
-    }
+      files: ['**/*.vue'],
+      customSyntax: 'postcss-html',
+    },
   ],
-  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json', ],
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json'],
   rules: {
     indentation: 2,
     'selector-pseudo-element-no-unknown': [
       true,
       {
-        ignorePseudoElements: ['v-deep', ':deep']
-      }
+        ignorePseudoElements: ['v-deep', ':deep'],
+      },
     ],
     'number-leading-zero': 'always',
     'no-descending-specificity': null,
@@ -119,10 +116,7 @@ module.exports = {
     'no-empty-source': null,
     'selector-class-pattern': null,
     'keyframes-name-pattern': null,
-    'selector-pseudo-class-no-unknown': [
-      true,
-      { ignorePseudoClasses: ['global', 'deep'] }
-    ],
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global', 'deep'] }],
     'function-no-unknown': null,
     'order/properties-order': [
       'position',
@@ -200,17 +194,17 @@ module.exports = {
       'box-shadow',
       'text-shadow',
       'resize',
-      'transition'
-    ]
-  }
-};
+      'transition',
+    ],
+  },
+}
 ```
 
 ### 2.2 Stylelint 配置项
 
 在上面的配置文件中，我们主要定义了一个配置对象，接下来将对常用的配置项进行介绍。
 
-**（1）plugins**
+#### **（1）plugins**
 
 plugins 定义了一个数组，该配置项允许我们使用第三方插件，在该数组中，需要包含“定位器”标识出你要使用的插件，一个“定位器”可以是一个 npm 模块名，一个绝对路径，或一个相对于要调用的配置文件的路径。
 
@@ -226,7 +220,7 @@ plugins 定义了一个数组，该配置项允许我们使用第三方插件，
 }
 ```
 
-**（2）extends**
+#### **（2）extends**
 
 extends 定义了一个数组，该配置项允许我们 extend 一个已存在的配置文件(无论是你自己的还是第三方的配置)。当一个配置继承了里一个配置，它将会添加自己的属性并覆盖原有的属性。比如下面的代码，我们就 extend 了 Stylelint 的标准配置。
 
@@ -251,7 +245,7 @@ extends 定义了一个数组，该配置项允许我们 extend 一个已存在�
 }
 ```
 
-**（3）rules**
+#### **（3）rules**
 
 rules 定义了一个对象，属性名为规则名称，属性值为规则取值，它告诉 Stylelint 该检查什么，该怎么报错，所有的[规则](https://stylelint.io/user-guide/rules/list)都是默认关闭的。我们可以通过该选项开启相应规则，进行相应的检测。所有规则必须显式的进行配置，因为没有默认值。
 
@@ -324,7 +318,7 @@ rules 定义了一个对象，属性名为规则名称，属性值为规则取�
   } ]
 ```
 
-**（4）processors**
+#### **（4）processors**
 
 Processors 是 Stylelint 的钩子函数，只能用在命令行和 Node API，不适用于 PostCSS 插件。Processors 可以使 Stylelint 检测非样式表文件中的 CSS。例如，可以检测 HTML 内中`<style`>标签中的 CSS，Markdown 文件中代码块或 JavaScript 中的字符串。
 
@@ -350,7 +344,7 @@ Processors 是 Stylelint 的钩子函数，只能用在命令行和 Node API，�
 
 在实际的使用场景中，我们可能存在某些文件或某行代码，希望能够跳过 Stylelint 的检查或禁用某些规则，下面主要介绍了几种跳过 Stylelint 检查的方式：
 
-**（1）使用注释禁用规则**
+#### **（1）使用注释禁用规则**
 
 使用/_stylelint-disable_/，可以在代码片段禁用所有规则或禁用特定规则。
 
@@ -385,7 +379,7 @@ a {
 }
 ```
 
-**（2）创建.stylelintignore 忽略某些文件的检查**
+#### **（2）创建.stylelintignore 忽略某些文件的检查**
 
 在项目根目录创建.stylelintignore 文件。
 
@@ -397,7 +391,7 @@ a {
 # .stylelintignore
 # 旧的不需打包的样式库
 *.min.css
- 
+
 # 其他类型文件
 *.js
 *.jpg
@@ -406,7 +400,7 @@ a {
 *.ttf
 *.woff
 *.json
- 
+
 # 测试和打包目录
 /test/
 /dist/
@@ -459,7 +453,7 @@ stylelint "src/*.{html,vue,css,saas,scss,less}" --fix
 
 安装好 Stylelint 插件之后，我们还需要配置 VSCode 的 settings.json 文件，让我们的代码在保存时，就能够按照规范对 CSS 样式进行检查及自动 fix。VSCode 的 settings.json 设置分为工作区和用户区两个级别。其中，用户区的设置会对所有项目生效，工作区的设置只能对当前项目生效。
 
-**（1）用户区 settings.json 配置**
+#### **（1）用户区 settings.json 配置**
 
 点击 VSCode 左下角的设置按钮，选择 Settings，并且选择以文本编辑的方式打开 settings.json，在 settings.json 中加入以下代码。
 
@@ -472,7 +466,7 @@ stylelint "src/*.{html,vue,css,saas,scss,less}" --fix
 }
 ```
 
-**（2）工作区 settings.json 配置**
+#### **（2）工作区 settings.json 配置**
 
 在项目根目录创建.vscode 目录，并且在该目录下创建 settings.json 文件。
 

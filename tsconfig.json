@@ -7,7 +7,8 @@
     "experimentalDecorators": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "."
   },
   "exclude": ["node_modules", "**/node_modules/*"],
   "include": ["src", "docs", "typed-css.d.ts"]
