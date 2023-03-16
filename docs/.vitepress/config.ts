@@ -40,6 +40,10 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     socialLinks,
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2023-present fk',
+    },
     // algolia,
     docFooter: {
       prev: '上一篇',
