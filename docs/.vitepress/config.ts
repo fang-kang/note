@@ -13,6 +13,7 @@ export default defineConfig({
   description,
   markdown: {
     lineNumbers: false,
+    theme: 'one-dark-pro',
     config: md => {
       md.use(mdItCustomAttrs, 'image', {
         'data-fancybox': 'gallery',

@@ -10,8 +10,11 @@ hero:
     alt: 个人知识库
   actions:
     - theme: brand
-      text: 开始阅读
+      text: Get Started
       link: /articles/01-前端/
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/fang-kang/note
 
 features:
   - icon: 🎨

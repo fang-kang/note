@@ -765,3 +765,6 @@ lint-staged，它只对 git 暂存区的文件执行 linter 检测，相对每�
 现在每次在提交的代码的时候，会默认执行`pre-commit`，然后执行 lint-staged 检测，在`lint-staged`脚本中先执行`eslint --fix`，如前所述，此时会使用`prettier`规则格式化文件，没有错误会执行`git add`把`fix`过后的文件添加到暂存区，否则会报错退出。
 
 至此，我们就完成了在项目配置 eslint 和`prettier`的全部工作了。
+ 
+ 
+ <git-talk/>

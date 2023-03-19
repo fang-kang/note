@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "target": "ESNext",
     "jsx": "preserve",
@@ -8,8 +8,9 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "types": ["./typing"]
   },
   "exclude": ["node_modules", "**/node_modules/*"],
-  "include": ["src", "docs", "typed-css.d.ts"]
+  "include": ["src", "docs", "typed-css.d.ts", "./typing/index.d.ts"]
 }

@@ -33,3 +33,13 @@ html.dark {
 .medium-zoom-image {
   z-index: 21;
 }
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #cccccc;
+}

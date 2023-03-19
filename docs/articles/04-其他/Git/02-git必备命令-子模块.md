@@ -68,3 +68,6 @@ rm -rf path_to_submodule
 ```bash
 git commit -m "chore: remove submodule"
 ```
+ 
+ 
+ <git-talk/>

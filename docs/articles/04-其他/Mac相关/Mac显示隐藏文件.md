@@ -11,3 +11,6 @@ defaults write com.apple.finder AppleShowAllFiles Yes && killall Finder
 ```bash
 defaults write com.apple.finder AppleShowAllFiles No && killall Finder
 ```
+ 
+ 
+ <git-talk/>

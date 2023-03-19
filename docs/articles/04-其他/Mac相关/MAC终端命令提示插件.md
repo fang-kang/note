@@ -34,3 +34,6 @@ source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```bash
 source ~/.zshrc
 ```
+ 
+ 
+ <git-talk/>

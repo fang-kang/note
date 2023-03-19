@@ -152,3 +152,6 @@ ssh-add ~/.ssh/github_id_rsa
 2、把公钥`github_id_rsa.pub`，重新添加到 `Git` 账号`SSH Keys`，再验证连接。
 
 3、最终还是没办法连接成功，重新按上面步骤操作。
+ 
+ 
+ <git-talk/>
