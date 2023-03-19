@@ -3,14 +3,15 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 onMounted(() => {
   let utterances = window.document.createElement('script')
   utterances.type = 'text/javascript'
   utterances.async = true
-  utterances.setAttribute('issue-term', 'pathname')
+  utterances.setAttribute('issue-term', 'title')
   utterances.setAttribute('theme', 'github-light')
   utterances.setAttribute('repo', 'fang-kang/note')
-  utterances.crossorigin = 'anonymous'
+  utterances.crossOrigin = 'anonymous'
   utterances.src = 'https://utteranc.es/client.js'
   window.document.getElementById('comment').appendChild(utterances)
 })
