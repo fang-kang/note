@@ -1,4 +1,4 @@
-# webpack 基础知识整理
+# Webpack 基础知识整理
 
 ## webpack 简介
 
@@ -481,8 +481,8 @@ sourceMap 通过配置中的 devtool 去配置，参数的含义大概有以下�
 
 **最佳实践**
 
-1. develop：cheap-module-eval-source-map，提示比较全，打包速度快
-2. production：cheap-module-source-map，提示更全面，打包稍微慢
+1. develop：`cheap-module-eval-source-map`，提示比较全，打包速度快
+2. production：`cheap-module-source-map`，提示更全面，打包稍微慢
 
 ## 监听变动
 
@@ -734,12 +734,12 @@ module.exports = {
 
 `@babel/preset-env` 还可以拥有其他配置参数，比如：
 
-```json
+```js
 {
   "presets": [["@babel/preset-env", {
     targets: {
       chrome: "67"
-    }，
+    }
     useBuiltIns: 'usage'
   }]]
 }
@@ -961,8 +961,6 @@ createElement().then(element => {
 
 > 这个写法会报错，因为动态来获取依赖的这种方式是试验性语法，目前还不支持，需要借助插件：`babel-plugin-dynamic-import-webpack`
 
----
-
 ### SplitChunksPlugin
 
 **魔法注释**
@@ -987,7 +985,7 @@ createElement().then(element => {
 module.exports = {
   optimization: {
     splitChunks: {
-      chunks: "async", // async 异步，initial 同步， all 全部，但是同步还需要配置 cacheGroups，这是重点
+      chunks: 'async', // async 异步，initial 同步， all 全部，但是同步还需要配置 cacheGroups，这是重点
       minSize: 30000, // 可以处理依赖的最小值
       maxSize: 0, // 可以处理依赖的最大值
       minChunks: 2, // 被引用2次及以上，才会被拆分
@@ -999,18 +997,17 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10, // 优先级，数值越大优先级越高，符合多个规则时优先权重高的规则
-          filename: "venders.js" // 打包时的名字
+          filename: 'venders.js', // 打包时的名字
         },
         // 不在 verdors 内的打包
         default: {
           minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true // 如果一个模块被打包过了，再次遇到，就不会再打包了，而是会去找之前打包过的那个模块
-          }
-        }
-      }
-    }
-  }
+          priority: -20,
+          reuseExistingChunk: true, // 如果一个模块被打包过了，再次遇到，就不会再打包了，而是会去找之前打包过的那个模块
+        },
+      },
+    },
+  },
 }
 ```
 
@@ -1109,8 +1106,6 @@ document.addEventListener('click', () => {
 所以我们现在写代码应该考虑的不是缓存的问题，而是代码的利用率。所以在 `chunks` 默认设置为 `async` 而不是 `all`，是因为，同步的代码只能增加缓存，而对性能提升非常有限。
 
 > 谷歌浏览器查看网页的利用率：控制台 --> ctrl+shift+p --> coverage
-
----
 
 比如点击登录的时候会出现一个模态框，首页的加载并不需要加载模态框的，但是点击登录按钮再加载，模态框的加载是会变慢的，这就需要下面的两个方法了：`Preloading` 和 `Prefetching`。
 
