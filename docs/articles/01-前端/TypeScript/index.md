@@ -1,5 +1,9 @@
 # TypeScript
 
+:::tip
+TypeScript 相关笔记
+:::
+
 TypeScript 的命令行工具安装方法如下：
 
 ```bash

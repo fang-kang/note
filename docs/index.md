@@ -6,7 +6,7 @@ hero:
   text: Front-end learning document collection
   tagline: 前端、后端、技术、学习
   image:
-    src: /logo.svg
+    src: /banner.svg
     alt: 个人知识库
   actions:
     - theme: brand
@@ -14,13 +14,23 @@ hero:
       link: /articles/01-前端/
 
 features:
-  - icon: ✏️
-    title: 学会记笔记
-    details: 毕竟好记性不如烂笔头
-  - icon: 📦
-    title: 试着去封装
-    details: 封装好了，可比复制快多了
+  - icon: 🎨
+    title: 前端
+    details: 前端相关基础积累
+    link: /articles/01-前端/
+
+  - icon: 📋
+    title: 后端
+    details: 后端相关基础积累
+    link: /articles/02-后端/
+
   - icon: 🛠️
-    title: 要多回顾，多思考
-    details: 温故而知新
+    title: 其他
+    details: 一些杂项等
+    link: /articles/04-其他/
+
+  - icon: 📝
+    title: 问题
+    details: 积累编程中遇到的坑
+    link: /articles/05-问题/
 ---
