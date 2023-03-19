@@ -13,4 +13,3 @@ defaults write com.apple.finder AppleShowAllFiles No && killall Finder
 ```
  
  
- <git-talk/>

@@ -1230,4 +1230,3 @@ cache: {
 - `output.filename: "[name].js"`
  
  
- <git-talk/>

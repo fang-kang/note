@@ -36,4 +36,3 @@ source ~/.zshrc
 ```
  
  
- <git-talk/>

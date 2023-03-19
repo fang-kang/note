@@ -219,4 +219,3 @@ React16.4+生命周期
 4. 新增了对错误的处理（`componentDidCatch`）
  
  
- <git-talk/>

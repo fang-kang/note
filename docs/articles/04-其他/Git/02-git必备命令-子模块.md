@@ -70,4 +70,3 @@ git commit -m "chore: remove submodule"
 ```
  
  
- <git-talk/>

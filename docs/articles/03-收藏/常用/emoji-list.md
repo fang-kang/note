@@ -317,4 +317,3 @@ emoji-list from <https://github.com/caiyongji/emoji-list>
 | :small_red_triangle_down: `:small_red_triangle_down:`                 | :shipit: `:shipit:`                                           |
  
  
- <git-talk/>

@@ -154,4 +154,3 @@ ssh-add ~/.ssh/github_id_rsa
 3、最终还是没办法连接成功，重新按上面步骤操作。
  
  
- <git-talk/>

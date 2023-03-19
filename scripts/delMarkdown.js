@@ -8,7 +8,7 @@ function delComponents(dir) {
   fs.readFile(dir, 'utf-8', (err, content) => {
     if (err) throw err
 
-    fs.writeFile(dir, content.replace(/\n <git-talk\/>/g, ''), err => {
+    fs.writeFile(dir, content.replace(/\n Utterances\/>/g, ''), err => {
       if (err) throw err
       console.log(`del components from ${dir}`)
     })

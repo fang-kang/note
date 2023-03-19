@@ -26,4 +26,3 @@ Notice: Deployment failed! ❌
 ![](asserts/1.png)
  
  
- <git-talk/>

@@ -1,4 +1,3 @@
 # MyBatis
  
  
- <git-talk/>

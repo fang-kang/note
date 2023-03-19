@@ -100,4 +100,3 @@ Webpack 的强大之处不仅仅在于它统一了 JS 的各种模块系统，�
 - 自动化测试——常用框架 karma、mocha、jest、ava 等等
  
  
- <git-talk/>
