@@ -398,5 +398,3 @@ V5 版本的 to 属性只支持绝对位置，如`<Lint to="me">`表示`<Lint to
 ### 使用 useNavigate 代替 useHistory
 
 可以参考上面`useNavigate`使用，这里不再赘述
- 
- 

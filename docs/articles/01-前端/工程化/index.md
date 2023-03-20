@@ -98,5 +98,3 @@ Webpack 的强大之处不仅仅在于它统一了 JS 的各种模块系统，�
 
 - 自动化部署——在开发完成后的编译部署实现自动化，例如本博客使用的 vitepress，每次提交后会自动构建和部署。其他方式：github CI、Jenkins 等等
 - 自动化测试——常用框架 karma、mocha、jest、ava 等等
- 
- 

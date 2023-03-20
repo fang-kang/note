@@ -482,5 +482,3 @@ stylelint "src/*.{html,vue,css,saas,scss,less}" --fix
 ```
 
 配置好用户区或工作区的 settings.json 后，当我们修改了某个文件的 CSS 代码，并且保存时，就会发现能够对当前文件自动进行 stylelint 检查和修复了。
- 
- 

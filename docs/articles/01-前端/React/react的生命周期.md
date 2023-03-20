@@ -217,5 +217,3 @@ React16.4+生命周期
 2. 新增了 `getDerivedStateFromProps`、`getSnapshotBeforeUpdate`来代替弃用的三个钩子函数（`componentWillMount`、`componentWillReceiveProps`，`componentWillUpdate`）
 3. React16 并没有删除这三个钩子函数，但是不能和新增的钩子函数（`getDerivedStateFromProps`、`getSnapshotBeforeUpdate`）混用，React17 将会删除 `componentWillMount`、`componentWillReceiveProps`，`componentWillUpdate`
 4. 新增了对错误的处理（`componentDidCatch`）
- 
- 
