@@ -30,12 +30,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Clear Gitalk
-        run: pnpm clean
-
-      - name: Add Gitalk
-        run: pnpm gitalk
-
       # 执行发布到库
 
       # 运行构建脚本

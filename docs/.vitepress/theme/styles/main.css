@@ -1,3 +1,5 @@
+@import url('./fonts.css');
+
 html.dark {
   color-scheme: dark;
 }
@@ -35,11 +37,15 @@ html.dark {
 }
 
 ::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #cccccc;
+}
+
+body {
+  font-family: 'Comfortaa', 'IBM Plex Serif', 'Noto Serif SC', 'Source Code Pro', sans-serif;
 }

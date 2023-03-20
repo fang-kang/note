@@ -5,15 +5,28 @@
 <script setup>
 import { onMounted } from 'vue'
 onMounted(() => {
-  let utterances = window.document.createElement('script')
+  const utterances = window.document.createElement('script')
   utterances.type = 'text/javascript'
   utterances.async = true
   utterances.setAttribute('issue-term', 'title')
-  utterances.setAttribute('theme', 'github-light')
+  utterances.setAttribute(
+    'theme',
+    [...document.documentElement.classList].includes('dark') ? 'github-dark' : 'github-light'
+  )
   utterances.setAttribute('repo', 'fang-kang/note')
   utterances.crossOrigin = 'anonymous'
   utterances.src = 'https://utteranc.es/client.js'
   window.document.getElementById('comment').appendChild(utterances)
+  document.querySelector('.VPSwitchAppearance').addEventListener('click', () => {
+    const isDark = [...document.documentElement.classList].includes('dark')
+    const theme = isDark ? 'github-dark' : 'github-light'
+    const message = {
+      type: 'set-theme',
+      theme: theme,
+    }
+    const utteranc = document.querySelector('.utterances-frame')
+    utteranc.contentWindow.postMessage(message, 'https://utteranc.es')
+  })
 })
 </script>
 
@@ -36,5 +49,9 @@ onMounted(() => {
   max-width: 100%;
   height: 100%;
   border: 0;
+}
+
+.timeline-header {
+  display: none !important;
 }
 </style>

@@ -9,9 +9,7 @@
     "docs:preview": "vitepress preview docs",
     "watchChangeRestartVitepress": "node ./docs/.vitepress/watchChangeRestartVitepress.mjs",
     "release": "release-it",
-    "lint": "eslint --fix \"./docs/**/*.{ts,js,vue,tsx}\"",
-    "gitalk": "node ./scripts/addMarkdown.js",
-    "clean": "node ./scripts/delMarkdown.js"
+    "lint": "eslint --fix \"./docs/**/*.{ts,js,vue,tsx}\""
   },
   "keywords": [],
   "license": "ISC",
@@ -56,7 +54,7 @@
     "unocss": "^0.50.4",
     "vite": "^4.1.4",
     "vite-plugin-vitepress-demo": "2.0.0-alpha.8",
-    "vitepress": "1.0.0-alpha.51",
+    "vitepress": "1.0.0-alpha.60",
     "vitepress-plugin-search": "1.0.4-alpha.19",
     "vue": "^3.2.47"
   },

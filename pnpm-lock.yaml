@@ -30,7 +30,7 @@ specifiers:
   unocss: ^0.50.4
   vite: ^4.1.4
   vite-plugin-vitepress-demo: 2.0.0-alpha.8
-  vitepress: 1.0.0-alpha.51
+  vitepress: 1.0.0-alpha.60
   vitepress-plugin-search: 1.0.4-alpha.19
   vue: ^3.2.47
 
@@ -63,9 +63,9 @@ devDependencies:
   typescript: 4.9.5
   unocss: 0.50.4_vite@4.1.4
   vite: 4.1.4_@types+node@18.14.6
-  vite-plugin-vitepress-demo: 2.0.0-alpha.8_pms3lfzatojpgu4l76c35gzuva
-  vitepress: 1.0.0-alpha.51_@types+node@18.14.6
-  vitepress-plugin-search: 1.0.4-alpha.19_wa76uzoxa7sjxpgthdjgz7ruma
+  vite-plugin-vitepress-demo: 2.0.0-alpha.8_ahv4xal3d4so6da4w2jgiudfwy
+  vitepress: 1.0.0-alpha.60_@types+node@18.14.6
+  vitepress-plugin-search: 1.0.4-alpha.19_ltova76d45rvnfeoh3url7tfve
   vue: 3.2.47
 
 packages:
@@ -6528,7 +6528,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-plugin-vitepress-demo/2.0.0-alpha.8_pms3lfzatojpgu4l76c35gzuva:
+  /vite-plugin-vitepress-demo/2.0.0-alpha.8_ahv4xal3d4so6da4w2jgiudfwy:
     resolution: {integrity: sha512-hDyxdZ1K295YXvxchwu3ULzs61ESY6VmA2t1TIKbZrA4ZyCrc3C8wKXVJIwh5/xANbK9aoErSV5L6BbPIiGUtQ==}
     peerDependencies:
       vitepress: ^1.0.0-alpha.20
@@ -6541,7 +6541,7 @@ packages:
       markdown-it: 13.0.1
       posthtml-parser: 0.11.0
       posthtml-render: 3.0.0
-      vitepress: 1.0.0-alpha.51_@types+node@18.14.6
+      vitepress: 1.0.0-alpha.60_@types+node@18.14.6
       vue: 3.2.47
     dev: true
 
@@ -6579,7 +6579,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.19_wa76uzoxa7sjxpgthdjgz7ruma:
+  /vitepress-plugin-search/1.0.4-alpha.19_ltova76d45rvnfeoh3url7tfve:
     resolution: {integrity: sha512-WFOPn5dStyMINd+rVjNxbEmGa7U+qGHLxLnda56EG+ATil1i0yOauGhJEh5LPMvuCUVIA9tInJnFXklOBb39dA==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
@@ -6591,12 +6591,12 @@ packages:
       '@types/markdown-it': 12.2.3
       flexsearch: 0.7.31
       markdown-it: 13.0.1
-      vitepress: 1.0.0-alpha.51_@types+node@18.14.6
+      vitepress: 1.0.0-alpha.60_@types+node@18.14.6
       vue: 3.2.47
     dev: true
 
-  /vitepress/1.0.0-alpha.51_@types+node@18.14.6:
-    resolution: {integrity: sha512-euZpjXeIaNUadLAQtd7NYbKhJJoDyZ6z8YK77qlM2c6NvUB5wmLPU6moP4rfcKUqpBDrsrxjJS6fdPk6azS5qQ==}
+  /vitepress/1.0.0-alpha.60_@types+node@18.14.6:
+    resolution: {integrity: sha512-GI5iLDkZRqGEPixbSloT+p6pbKcMh9ykRRxt8vf9AjV1gaPit6Stg/t9WNxTdIhKVCuQMexGs1605DNApSRK2A==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
