@@ -1,37 +1,46 @@
 # css 常用
 
-## css 美化滚动条
+## css 仿 Mac 风格美化滚动条
 
 ### 代码
 
 ```css
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   background-color: #fff;
 }
 
 ::-webkit-scrollbar-track {
-  width: 6px;
-  background: rgba(#101f1c, 0.1);
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  border-radius: 2em;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(144, 147, 153, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
-  min-height: 28px;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  border-radius: 2em;
+  -webkit-border-radius: 10px;
+  border: 3.5px solid transparent;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   transition: background-color 0.3s;
   cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(144, 147, 153, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background-color: #1e1e20;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(177, 177, 177, 0.4);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(177, 177, 177, 0.7);
 }
 ```
 
