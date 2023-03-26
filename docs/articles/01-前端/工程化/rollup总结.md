@@ -125,6 +125,22 @@ export default {
 
 再次打包之后转换为 ES5 的写法
 
+### rollup-plugin-polyfill-node
+
+使用 rollup 打包的时候，想把 assert、path、util、fs 模块这些模块以代码的方式打包导入，最简单的方式是在 rollup.config.js 中使用**rollup-plugin-polyfill-node**
+
+```bash
+npm i rollup-plugin-polyfill-node -D
+```
+
+```js
+//rollup.config.js
+import nodePolyfills from 'rollup-plugin-polyfill-node'
+export default {
+  plugins: [nodePolyfills()],
+}
+```
+
 ### rollup-plugin-commonjs
 
 rollup 默认是不支持 CommonJS 模块的，自己写的时候可以尽量避免使用 CommonJS 模块的语法，但有些外部库的是 cjs 或者 umd（由 webpack 打包的），所以使用这些外部库就需要支持 CommonJS 模块。
@@ -185,7 +201,7 @@ export default src
 
 处理 css 需要用到的插件是`rollup-plugin-postcss`。它支持 css 文件的加载、css 加前缀、css 压缩、对 scss/less 的支持等等。
 
-首先，安装，`npm i rollup-plugin-postcss postcss -D`，然后在`rollup.config.js`中配置：
+首先，安装，`npm i rollup-plugin-postcss -D`，然后在`rollup.config.js`中配置：
 
 ```js
 import postcss from 'rollup-plugin-postcss'
