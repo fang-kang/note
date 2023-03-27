@@ -6,8 +6,8 @@
 
 ```css
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   background-color: #fff;
 }
 
@@ -20,7 +20,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
   -webkit-border-radius: 10px;
-  border: 3.5px solid transparent;
+  border: 4px solid transparent;
   -moz-border-radius: 10px;
   border-radius: 10px;
   transition: background-color 0.3s;

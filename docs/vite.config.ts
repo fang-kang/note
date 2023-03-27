@@ -10,7 +10,7 @@ import { resolve } from 'path'
 export default defineConfig((env: ConfigEnv) => {
   return {
     build: {
-      chunkSizeWarningLimit: 4096,
+      chunkSizeWarningLimit: 2000,
     },
     plugins: [
       vueJsx(),
