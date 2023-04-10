@@ -2,23 +2,23 @@
 
 ## 1.账号与创建应用
 
-需要再 algolia 官网 注册一个账号，或者直接选择以 GitHub 身份登录。
+需要再 `algolia` 官网 注册一个账号，或者直接选择以 `GitHub` 身份登录。
 
-![](asserts/2.png)
+![img](asserts/2.png)
 
-登录之后会进入控制台页面，点击右上角头像，会有一个设置选项，之后来到 Applications 这里，去创建一个应用，以我自己的为例，下图已经创建好了「chodocs」。
+登录之后会进入控制台页面，点击右上角头像，会有一个设置选项，之后来到 `Applications` 这里，去创建一个应用，以我自己的为例，下图已经创建好了 `note`。
 
-![](asserts/3.png)
+![img](asserts/3.png)
 
 ## 2.获取 key
 
-如图下所示，进入 API Keys 页面。
+如图下所示，进入 `API Keys` 页面。
 
-![](asserts/4.png)
+![img](asserts/4.png)
 
-会看到如下界面，一个是可公开的，`Search-Only API Key` 是待会我们在 VitePress 项目中会使用的，而 `Admin API Key` 是用于一会[爬虫](https://so.csdn.net/so/search?q=爬虫&spm=1001.2101.3001.7020)的 key，因为是私有的，所以一会放在 Github Secrets 中。
+会看到如下界面，一个是可公开的，`Search-Only API Key` 是待会我们在 VitePress 项目中会使用的，而 `Admin API Key` 是用于一会爬虫的 key，因为是私有的，所以一会放在 Github Secrets 中。
 
-![](asserts/5.png)
+![img](asserts/5.png)
 
 ## 3.在文档中填写 key
 
@@ -40,7 +40,7 @@ algolia: {
 
 将上述获取的 `Admin API Key` 和 `Application ID` 分别添加到 Github Secrets 中，如下图所示，创建 `API_KEY` 和 `APPLICATION_ID` 两个字段，一会在 ci 中会使用到。
 
-![](asserts/6.png)
+![img](asserts/6.png)
 
 ## 5.创建 crawlerConfig.json
 
@@ -105,7 +105,7 @@ jobs:
 
 原因：
 
-![](asserts/8.jpg)
+![img](asserts/8.jpg)
 
 ## 8.依旧使用 algolia
 
@@ -115,20 +115,11 @@ jobs:
 
 > 如果表单提交不成功，需要使用科学上网。
 
-这里有几点需要注意：
+其实一般是 GitHub 上的开源项目都会申请通过的，之后会收到如下类似的邮件回复，根据 key 和 id 来替换过去旧的即可。
 
-- 您必须是该网站的所有者，或至少有更新其内容的权限
-- 你的网站必须是公开的
-- 你的网站必须是一个开源项目或技术博客的技术文档，不授权于商业内容
-- 你的网站必须到生产环境
-
-其实一般是 GitHub 上的开源项目都会申请通过的，我是大概等了 2 天样子，会收到如下类似的邮件回复，根据 key 和 id 来替换过去旧的即可。
-
-![](asserts/7.png)
+![img](asserts/7.png)
 
 ## 9.参考链接
 
 - [https://blog.csdn.net/weixin_42429718/article/details/128361258](https://blog.csdn.net/weixin_42429718/article/details/128361258)
 - [https://chodocs.cn/program/vitepress-algolia-plus/](https://chodocs.cn/program/vitepress-algolia-plus/)
- 
- 
