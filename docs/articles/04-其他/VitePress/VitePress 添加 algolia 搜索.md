@@ -30,7 +30,7 @@
 algolia: {
   appId: 'RDDxxx', // Application ID
   apiKey: '9302dbxxx', // Search-Only API Key
-  indexName: 'chodocs', // 为你自己填的index
+  indexName: 'note', // 为你自己填的index
   placeholder: '请输入关键词',
   buttonText: '搜索',
 }

@@ -304,7 +304,7 @@ export default {
 }
 ```
 
-`rollup-plugin-vue`也是默认支持 scss、less、stylus，可以在项目中直接使用。给.vue 文件中的 css 自动加前缀，需要在`rollup-plugin-vue`中配置。更多配置参考[rollup-plugin-vue](https://link.zhihu.com/?target=https%3A//rollup-plugin-vue.vuejs.org/options.html%23style-postcssoptions)
+`rollup-plugin-vue`也是默认支持 scss、less、stylus，可以在项目中直接使用。给.vue 文件中的 css 自动加前缀，需要在`rollup-plugin-vue`中配置。更多配置参考[rollup-plugin-vue](https://rollup-plugin-vue.vuejs.org/options.html#style-postcssoptions)
 
 ```js
 import vue from 'rollup-plugin-vue'
