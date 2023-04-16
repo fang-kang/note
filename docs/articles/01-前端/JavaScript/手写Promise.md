@@ -776,6 +776,11 @@ Promise.race 用来处理多个请求，采用最快的（谁先完成用谁的�
 
 ```js
 Promise.race = function (promises) {
+  if (!Array.isArray(values)) {
+    const type = typeof values
+    return new TypeError(`TypeError: ${type} ${values} is not iterable`)
+  }
+
   return new Promise((resolve, reject) => {
     // 一起执行就是for循环
     for (let i = 0; i < promises.length; i++) {
@@ -837,6 +842,110 @@ newPromise
 '成功的结果成功'
 ```
 
+### 4.7 Promise.allSettled
+
+**`Promise.allSettled()`** 方法以 promise 组成的可迭代对象作为输入，并且返回一个 [`Promise`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise) 实例。当输入的所有 promise 都已敲定时（包括传递空的可迭代类型），返回的 promise 将兑现，并带有描述每个 promsie 结果的对象数组。
+
+**示例:**
+
+```js
+Promise.allSettled([
+  Promise.resolve(33),
+  new Promise(resolve => setTimeout(() => resolve(66), 0)),
+  99,
+  Promise.reject(new Error('an error')),
+]).then(values => console.log(values))
+
+// [
+//   { status: 'fulfilled', value: 33 },
+//   { status: 'fulfilled', value: 66 },
+//   { status: 'fulfilled', value: 99 },
+//   { status: 'rejected', reason: Error: an error }
+// ]
+```
+
+1. Promise.allSettled 方法和 Promsie.all 方法接收参数一样。
+2. 执行完返回一个数组对象每个结果对象，都有一个 status 字符串。如果它的值为 fulfilled，则结果对象上存在一个 value 。如果值为 rejected，则存在一个 reason 。
+
+```js
+Promise.allsettled = function (values) {
+  if (!Array.isArray(values)) {
+    const type = typeof values
+    return new TypeError(`TypeError: ${type} ${values} is not iterable`)
+  }
+
+  if (values.length === 0) return Promise.resolve([])
+  const results = []
+  let count = 0
+
+  const settled = (index, status, res, resolve) => {
+    results[index] = {
+      status,
+      ...res,
+    }
+    count += 1
+    if (count == values.length) {
+      resolve(results)
+    }
+  }
+  return new Promise(resolve => {
+    values.map((item, index) => {
+      // 把数据都处理成Promise
+      Promise.resolve(item).then(
+        value => {
+          settled(index, 'fulfilled', { value }, resolve)
+        },
+        reason => {
+          settled(index, 'rejected', { reason }, resolve)
+        }
+      )
+    })
+  })
+}
+```
+
+### 4.8 Promise.any
+
+**特点：**
+
+1. 几乎和 all 方法“一样”
+2. 区别：all 是所有都成功最后才成功,一个失败了，最后就失败，allSettled 是只要有一个成功了最后就是成功了，遇到失败的还是继续监测，直到找到成功的或者检查完。
+3. 好理解一点就是，all 方法类似于 Array 的 every 方法，any 类似于 Array 的 some 方法
+
+:::danger 警告
+
+`Promise.any()` 方法依然是实验性的，尚未被所有的浏览器完全支持。它当前处于 [TC39 第四阶段草案（Stage 4）](https://github.com/tc39/proposal-promise-any)
+
+:::
+
+```js
+Promise.any = function (values) {
+  if (!Array.isArray(values)) {
+    const type = typeof values
+    return new TypeError(`TypeError: ${type} ${values} is not iterable`)
+  }
+  const results = []
+  let count = 0
+
+  return new Promise((resolve, reject) => {
+    for (let p of values) {
+      Promise.resolve(p).then(
+        results => {
+          resolve(results) // 只要有一个成功，就走resolve
+        },
+        err => {
+          results[count] = err // 遇到错误先不管，继续检查
+          if (++count == values.length) {
+            //直到遇到成功的或检查完
+            reject(results)
+          }
+        }
+      )
+    }
+  })
+}
+```
+
 ## 5 promisify
 
 promisify 是把一个 node 中的 api 转换成 promise 的写法。 在 node 版本 12.18 以上，已经支持了原生的 promisify 方法：`const fs = require('fs').promises`
@@ -867,5 +976,287 @@ const promisifyAll = target => {
     }
   })
   return target
+}
+```
+
+## 6. 全部源码
+
+```js
+const PENDING = 'PENDING'
+const FULFILLED = 'FULFILLED'
+const REJECTED = 'REJECTED'
+
+const resolvePromise = (promise2, x, resolve, reject) => {
+  if (promise2 === x) {
+    return reject(new TypeError('chaining cycle detected for promise #<Promise>'))
+  }
+
+  let called = false
+
+  if ((typeof x === 'object' && x !== null) || typeof x === 'function') {
+    try {
+      let then = x.then
+      if (typeof then === 'function') {
+        then.call(
+          x,
+          y => {
+            if (called) return
+            called = true
+            resolvePromise(promise2, y, resolve, reject)
+          },
+          r => {
+            if (called) return
+            called = true
+            reject(r)
+          }
+        )
+      } else {
+        resolve(x)
+      }
+    } catch (error) {
+      if (called) return
+      called = true
+      reject(error)
+    }
+  } else {
+    resolve(x)
+  }
+}
+
+export default class Promise {
+  constructor(executor) {
+    this.status = PENDING
+    this.reason = undefined
+    this.value = undefined
+
+    this.onResolvedCallbacks = []
+    this.onRejectedCallbacks = []
+
+    const resolve = value => {
+      if (value instanceof Promise) {
+        return value.then(resolve, reject)
+      }
+
+      if (this.status === PENDING) {
+        this.status = FULFILLED
+        this.value = value
+        this.onResolvedCallbacks.forEach(fn => fn())
+      }
+    }
+
+    const reject = reason => {
+      if (this.status === PENDING) {
+        this.status = REJECTED
+        this.reason = reason
+        this.onRejectedCallbacks.forEach(fn => fn())
+      }
+    }
+
+    try {
+      executor(resolve, reject)
+    } catch (error) {
+      reject(error)
+    }
+  }
+
+  then(onFulfilled, onRejected) {
+    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
+    onRejected =
+      typeof onRejected === 'function'
+        ? onRejected
+        : reason => {
+            throw new Error(reason)
+          }
+
+    let promise2 = new Promise((resolve, reject) => {
+      if (this.status === FULFILLED) {
+        setTimeout(() => {
+          try {
+            let x = onFulfilled(this.value)
+            resolvePromise(promise2, x, resolve, reject)
+          } catch (error) {
+            reject(error)
+          }
+        }, 0)
+      }
+
+      if (this.status === REJECTED) {
+        setTimeout(() => {
+          try {
+            let x = onRejected(this.reason)
+            resolvePromise(promise2, x, resolve, reject)
+          } catch (error) {
+            reject(error)
+          }
+        }, 0)
+      }
+
+      if (this.status === PENDING) {
+        this.onResolvedCallbacks.push(() => {
+          setTimeout(() => {
+            try {
+              let x = onFulfilled(this.value)
+              resolvePromise(promise2, x, resolve, reject)
+            } catch (error) {
+              reject(error)
+            }
+          }, 0)
+        })
+
+        this.onRejectedCallbacks.push(() => {
+          setTimeout(() => {
+            try {
+              let x = onRejected(this.reason)
+              resolvePromise(promise2, x, resolve, reject)
+            } catch (error) {
+              reject(error)
+            }
+          }, 0)
+        })
+      }
+    })
+
+    return promise2
+  }
+
+  catch(catchCallback) {
+    return this.then(null, catchCallback)
+  }
+
+  finally(callback) {
+    return this.then(
+      value => {
+        return Promise.resolve(callback().then(() => value))
+      },
+      reason => {
+        return Promise.resolve(
+          callback().then(() => {
+            throw reason
+          })
+        )
+      }
+    )
+  }
+
+  static resolve(value) {
+    return new Promise(resolve => {
+      resolve(value)
+    })
+  }
+
+  static reject(reason) {
+    return new Promise((resolve, reject) => {
+      reject(reason)
+    })
+  }
+
+  static all(values) {
+    if (!Array.isArray(values)) {
+      const type = typeof values
+      return new TypeError(`TypeError: ${type} ${values} is not iterable`)
+    }
+
+    return new Promise((resolve, reject) => {
+      let resultArr = []
+      let orderIndex = 0
+
+      const processResultByKey = (value, index) => {
+        resultArr[index] = value
+        if (orderIndex === values.length - 1) {
+          resolve(resultArr)
+        }
+      }
+
+      for (let i = 0; i < values.length; i++) {
+        let value = values[i]
+        if (value && typeof value.then === 'function') {
+          value.then(value => {
+            processResultByKey(value, i)
+          }, reject)
+        } else {
+          processResultByKey(value, i)
+        }
+      }
+    })
+  }
+
+  static race(values) {
+    if (!Array.isArray(values)) {
+      const type = typeof values
+      return new TypeError(`TypeError: ${type} ${values} is not iterable`)
+    }
+
+    return new Promise((resolve, reject) => {
+      for (let index = 0; index < values.length; index++) {
+        const val = values[index]
+        if (val && typeof val.then === 'function') {
+          val.then(resolve, reject)
+        } else {
+          resolve(val)
+        }
+      }
+    })
+  }
+
+  static allSettled(values) {
+    if (!Array.isArray(values)) {
+      const type = typeof values
+      return new TypeError(`TypeError: ${type} ${values} is not iterable`)
+    }
+
+    if (values.length === 0) return Promise.resolve([])
+    const results = []
+    let count = 0
+
+    const settled = (index, status, res, resolve) => {
+      results[index] = {
+        status,
+        ...res,
+      }
+      count += 1
+
+      if (count == values.length) {
+        resolve(results)
+      }
+    }
+
+    return new Promise(resolve => {
+      values.map((item, index) => {
+        Promise.resolve(item).then(
+          value => {
+            settled(index, 'fulfilled', { value }, resolve)
+          },
+          reason => {
+            settled(index, 'rejected', { reason }, resolve)
+          }
+        )
+      })
+    })
+  }
+
+  static any(values) {
+    if (!Array.isArray(values)) {
+      const type = typeof values
+      return new TypeError(`TypeError: ${type} ${values} is not iterable`)
+    }
+    const results = []
+    let count = 0
+
+    return new Promise((resolve, reject) => {
+      for (let p of values) {
+        Promise.resolve(p).then(
+          results => {
+            resolve(results)
+          },
+          err => {
+            results[count] = err
+            if (++count == values.length) {
+              reject(results)
+            }
+          }
+        )
+      }
+    })
+  }
 }
 ```
