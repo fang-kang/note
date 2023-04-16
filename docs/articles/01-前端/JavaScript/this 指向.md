@@ -179,4 +179,4 @@ func.apply(1) // Window
 
 ## 8. 严格模式
 
-严格模式在全局模式下为`undefined`
+严格模式在全局作用域下为`undefined`
