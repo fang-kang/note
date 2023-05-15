@@ -1,3 +1,4 @@
+import { watch } from 'vue'
 import { type Theme } from 'vitepress'
 import { AntdTheme } from 'vite-plugin-vitepress-demo/theme'
 import DefaultTheme from 'vitepress/theme'
@@ -5,7 +6,7 @@ import DefaultTheme from 'vitepress/theme'
 import Utterances from './components/Utterances.vue'
 // @ts-ignore
 import Layout from './components/Layout.vue'
-import { h, watch } from 'vue'
+
 import 'uno.css'
 import './styles/index.css'
 
