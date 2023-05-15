@@ -1,5 +1,24 @@
 @import url('./fonts.css');
 
+@font-face {
+  font-family: 'Menlo';
+  src: url(../fonts/Menlo.ttf);
+}
+
+@font-face {
+  font-family: 'PingFangSC';
+  src: url(../fonts/PingFangSC-Medium.woff2);
+}
+
+code {
+  font-family: 'Menlo' !important;
+}
+
+html,
+body {
+  font-family: 'PingFangSC' !important;
+}
+
 html.dark {
   color-scheme: dark;
 }

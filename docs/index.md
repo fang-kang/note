@@ -6,7 +6,7 @@ hero:
   text: Front-end learning document collection
   tagline: 前端、后端、技术、学习
   image:
-    src: /banner.svg
+    src: /banner-gray.svg
     alt: 个人知识库
   actions:
     - theme: brand

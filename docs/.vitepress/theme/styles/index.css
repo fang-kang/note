@@ -1,2 +1,4 @@
 @import url('./main.css');
-@import url('./var.css');
+@import url('./overrides.css');
+@import url('./rainbow.css');
+@import url('./vars.css');
