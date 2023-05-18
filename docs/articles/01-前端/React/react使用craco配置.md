@@ -11,7 +11,7 @@
 - 使用 `react-app-rewired` + `customize-cra` 组合覆盖配置
 - 使用 `craco` 覆盖配置
 
-  这里我们选择的是使用 `craco` 覆盖配置
+  这里我们选择的是使用 `craco` 覆盖配置。
 
 ## 2. 安装
 
