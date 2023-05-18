@@ -160,7 +160,7 @@ module.exports = {
 
 一般情况下，react 项目我们都是用 css module 来处理样式的隔离，类似 vue 中的 scoped，避免全局样式污染。
 
-create-react-app 为我们提供了开箱即用的 sass module，不用安装即可使用。less 则是需要配置一下
+create-react-app 为我们提供了开箱即用的 sass module，不用安装即可使用。less 则是需要配置一下。
 
 #### 3.5.1 第一种方法
 
@@ -186,10 +186,6 @@ module.exports = {
 #### 3.5.2 第二种方法
 
 这种方法是手动写规则
-
-```shell
-yarn add craco-plugin-scoped-css craco-scoped-less -D
-```
 
 ```js
 // craco.config.js
