@@ -1,11 +1,12 @@
 import { watch } from 'vue'
 import { type Theme } from 'vitepress'
+import Antd from 'ant-design-vue'
 import { AntdTheme } from 'vite-plugin-vitepress-demo/theme'
 import DefaultTheme from 'vitepress/theme'
-// @ts-ignore
+
 import Utterances from './components/Utterances.vue'
-// @ts-ignore
 import Layout from './components/Layout.vue'
+import PreviewLink from './components/PreviewLink.vue'
 
 import 'uno.css'
 import './styles/index.css'
@@ -23,8 +24,10 @@ export default {
       () => updateHomePageStyle(location.pathname === '/'),
       { immediate: true }
     )
+    app.use(Antd)
     app.component('Demo', AntdTheme)
     app.component('Utterances', Utterances)
+    app.component('PreviewLink', PreviewLink)
   },
   setup() {},
 } as Theme
