@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import { getSidebarData, getNavData } from './navSidebarUtil'
 import updateInfo from './watchJson.json'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
-import { description, github, keywords, name } from './meta'
+import { description, github, keywords, name, base } from './meta'
 import socialLinks from './link'
 // import algolia from './algolia'
 
@@ -35,7 +35,7 @@ export default defineConfig({
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css' }],
     ['script', { src: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js' }],
   ],
-  base: '/note/',
+  base,
   lang: 'zh-CN',
   lastUpdated: false,
   themeConfig: {
