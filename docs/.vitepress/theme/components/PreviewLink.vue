@@ -2,14 +2,7 @@
   <li @click="visible = !visible">
     <a href="#">{{ label }}</a>
   </li>
-  <a-modal
-    v-model:visible="visible"
-    :title="label"
-    width="100%"
-    wrap-class-name="full-modal"
-    :footer="null"
-    style="height: 100vh"
-  >
+  <a-modal v-model:visible="visible" :title="label" width="100%" wrap-class-name="full-modal" :footer="null">
     <iframe :src="url" border="none" style="width: 100%; height: 100%" />
   </a-modal>
 </template>

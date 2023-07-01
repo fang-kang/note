@@ -6,8 +6,6 @@ import { SearchPlugin } from 'vitepress-plugin-search'
 import { VitePluginVitepressDemo } from 'vite-plugin-vitepress-demo'
 import flexSearchIndexOptions from 'flexsearch'
 import { resolve } from 'path'
-import Components from 'unplugin-vue-components/vite'
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig((env: ConfigEnv) => {
   return {
@@ -16,9 +14,6 @@ export default defineConfig((env: ConfigEnv) => {
     },
     plugins: [
       vueJsx(),
-      Components({
-        resolvers: [AntDesignVueResolver()],
-      }),
       VitePluginVitepressDemo({ glob: './**/demo/**/*.{vue,jsx,tsx,js,ts}' }),
       Unocss({
         shortcuts: [

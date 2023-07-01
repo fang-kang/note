@@ -8,6 +8,7 @@ import Utterances from './components/Utterances.vue'
 import Layout from './components/Layout.vue'
 import PreviewLink from './components/PreviewLink.vue'
 
+import 'ant-design-vue/dist/antd.css'
 import 'uno.css'
 import './styles/index.css'
 
