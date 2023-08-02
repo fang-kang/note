@@ -20,6 +20,10 @@ p {
   margin: 0;
 }
 
+.vp-doc h1 {
+  margin: 15px 0;
+}
+
 .vp-doc h2 {
   border-top: 0px;
   margin-top: 10px;
