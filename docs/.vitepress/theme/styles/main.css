@@ -4,6 +4,11 @@ html.dark {
   color-scheme: dark;
 }
 
+html,
+body {
+  font-family: PoppinsMedium !important;
+}
+
 h1,
 h2,
 h3,
