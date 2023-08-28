@@ -579,3 +579,8 @@
   font-family: PoppinsMedium;
   src: url('../fonts/Poppins-Medium.ttf');
 }
+
+@font-face {
+  font-family: ZhuoKai;
+  src: url('../fonts/ZhuoKai.ttf');
+}
