@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs --port 7910",
-    "docs:build": "node --max_old_space_size=8000 & vitepress build docs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "watchChangeRestartVitepress": "node ./docs/.vitepress/watchChangeRestartVitepress.mjs",
     "release": "release-it",
@@ -54,7 +54,6 @@
     "release-it": "^15.8.0",
     "typescript": "^4.9.5",
     "unocss": "^0.50.4",
-    "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.1",
     "vite": "^4.4.9",
     "vite-plugin-vitepress-demo": "2.0.0-alpha.8",

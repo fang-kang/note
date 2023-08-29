@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Setup increase-memory-limit
+        run: npm install -g increase-memory-limit
+
+      - name: Setup increase-memory-limit
+        run: npm run fix-memory-limit
+
       # 执行发布到库
 
       # 运行构建脚本
