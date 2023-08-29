@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs --port 7910",
-    "docs:build": "vitepress build docs",
+    "docs:build": "node --max_old_space_size=8000 & vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "watchChangeRestartVitepress": "node ./docs/.vitepress/watchChangeRestartVitepress.mjs",
     "release": "release-it",
