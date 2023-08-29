@@ -2,13 +2,14 @@
   <li @click="visible = !visible">
     <a href="#">{{ label }}</a>
   </li>
-  <a-modal v-model:visible="visible" :title="label" width="100%" wrap-class-name="full-modal" :footer="null">
+  <ElDialog v-model="visible" :title="label" width="100%" modal-class="full-modal" fullscreen>
     <iframe :src="url" border="none" style="width: 100%; height: 100%" />
-  </a-modal>
+  </ElDialog>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ElDialog } from 'element-plus'
 
 const props = defineProps({
   url: {
@@ -26,20 +27,8 @@ const visible = ref<boolean>(false)
 
 <style lang="less">
 .full-modal {
-  height: 100vh;
-  .ant-modal {
-    max-width: 100%;
-    top: 0;
-    padding-bottom: 0;
-    margin: 0;
-  }
-  .ant-modal-content {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh);
-  }
-  .ant-modal-body {
-    flex: 1;
+  .el-dialog__body {
+    height: calc(90vh);
   }
 }
 </style>

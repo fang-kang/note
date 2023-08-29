@@ -6,6 +6,9 @@ import { SearchPlugin } from 'vitepress-plugin-search'
 import { VitePluginVitepressDemo } from 'vite-plugin-vitepress-demo'
 import flexSearchIndexOptions from 'flexsearch'
 import { resolve } from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig((env: ConfigEnv) => {
   return {
@@ -13,6 +16,12 @@ export default defineConfig((env: ConfigEnv) => {
       chunkSizeWarningLimit: 2000,
     },
     plugins: [
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
       vueJsx(),
       VitePluginVitepressDemo({ glob: './**/demo/**/*.{vue,jsx,tsx,js,ts}' }),
       Unocss({
@@ -31,8 +40,6 @@ export default defineConfig((env: ConfigEnv) => {
         SearchPlugin({
           ...flexSearchIndexOptions,
           previewLength: 100, //搜索结果预览长度
-          buttonLabel: '搜索',
-          placeholder: '情输入关键词',
           tokenize: 'full',
         }),
       ],

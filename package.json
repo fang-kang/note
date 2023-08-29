@@ -2,7 +2,7 @@
   "name": "note",
   "version": "1.0.1",
   "description": "This is my personal note",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs --port 7910",
     "docs:build": "vitepress build docs",
@@ -54,12 +54,13 @@
     "release-it": "^15.8.0",
     "typescript": "^4.9.5",
     "unocss": "^0.50.4",
+    "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.1",
-    "vite": "^4.1.4",
+    "vite": "^4.4.9",
     "vite-plugin-vitepress-demo": "2.0.0-alpha.8",
-    "vitepress": "1.0.0-alpha.62",
+    "vitepress": "^1.0.0-rc.10",
     "vitepress-plugin-search": "1.0.4-alpha.19",
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   },
   "commitlint": {
     "extends": [
@@ -78,6 +79,6 @@
     ]
   },
   "dependencies": {
-    "ant-design-vue": "^3.2.20"
+    "element-plus": "^2.3.12"
   }
 }
