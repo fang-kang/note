@@ -6,9 +6,6 @@ import { SearchPlugin } from 'vitepress-plugin-search'
 import { VitePluginVitepressDemo } from 'vite-plugin-vitepress-demo'
 import flexSearchIndexOptions from 'flexsearch'
 import { resolve } from 'path'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig((env: ConfigEnv) => {
   return {
@@ -16,12 +13,6 @@ export default defineConfig((env: ConfigEnv) => {
       chunkSizeWarningLimit: 2000,
     },
     plugins: [
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-      }),
-      Components({
-        resolvers: [ElementPlusResolver()],
-      }),
       vueJsx(),
       VitePluginVitepressDemo({ glob: './**/demo/**/*.{vue,jsx,tsx,js,ts}' }),
       Unocss({
