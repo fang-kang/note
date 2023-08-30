@@ -4,10 +4,9 @@ html.dark {
   color-scheme: dark;
 }
 
-/* html,
-body {
-  font-family: PoppinsMedium, serif !important;
-} */
+code {
+  font-family: Menlo !important;
+}
 
 h1,
 h2,

@@ -70,7 +70,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "prepare": "husky install"
     }
   },
   "lint-staged": {

@@ -584,3 +584,18 @@
   font-family: ZhuoKai;
   src: url('../fonts/ZhuoKai.ttf');
 }
+
+@font-face {
+  font-family: DankMono;
+  src: url('../fonts/Dank Mono Regular.otf');
+}
+
+@font-face {
+  font-family: RobotoMono;
+  src: url('../fonts/RobotoMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: Menlo;
+  src: url('../fonts/Menlo-Regular.ttf');
+}
