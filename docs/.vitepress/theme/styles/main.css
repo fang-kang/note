@@ -1,11 +1,7 @@
-@import url('./fonts.css');
+/* @import url('./fonts.css'); */
 
 html.dark {
   color-scheme: dark;
-}
-
-code {
-  font-family: Menlo !important;
 }
 
 h1,
