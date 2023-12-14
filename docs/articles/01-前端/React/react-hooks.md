@@ -53,19 +53,30 @@ useState 的一种代替方案，当 state 的处理逻辑比较复杂的时候�
 使用：
 
 ```js
-const initialState = { count: 0 }
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'increment':
-      return { ...state, count: state.count + 1 }
-    case 'decrement':
-      return { ...state, count: state.count - 1 }
-    default:
-      throw new Error()
+function App() {
+  const initialState = 0
+  function countReducer(count, { type, paylod }) {
+    switch (type) {
+      case 'increment':
+        return count + paylod
+      case 'decrement':
+        return count - paylod
+      default:
+        return count
+    }
   }
+
+  const [count, dispatchCount] = useReducer(countReducer, initialState)
+
+  return (
+    <>
+      <h1>Hello React</h1>
+      <span>{count}</span>
+      <button onClick={() => dispatchCount({ type: 'increment', paylod: 2 })}>+</button>
+      <button onClick={() => dispatchCount({ type: 'decrement', paylod: 1 })}>-</button>
+    </>
+  )
 }
-const [state, dispatch] = useReducer(reducer, initialState)
 ```
 
 如果有第三个参数，则第三个参数为一个函数，接受第二个参数的值作为参数，返回初始值。
