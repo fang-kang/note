@@ -37,3 +37,18 @@ github 地址：[https://github.com/oldj/SwitchHosts](https://github.com/oldj/Sw
 下载（需要 🪜） 🔗：[https://switchhosts.vercel.app/zh](https://switchhosts.vercel.app/zh)
 
 ![img](asserts/15.png)
+
+### 3.3 修改https.proxy
+
+```bash
+git config --global https.proxy http://127.0.0.1:7890
+git config --global http.proxy http://127.0.0.1:7890
+```
+
+### 3.4 重置https.proxy
+
+```bash
+git config --global --unset http.proxy 
+git config --global --unset https.proxy 
+```
+
