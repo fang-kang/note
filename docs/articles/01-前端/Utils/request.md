@@ -303,3 +303,21 @@ const download = (url, data = {}, params = {}, config = {}) => {
 
 export { get, post, postId, postForm, download }
 ```
+
+## 使用
+
+```js
+import { form } from '@/utils/request'
+import { message } from 'antd'
+
+export async function getUserById(params) {
+  return form(`/user/getById`, params).then(res => {
+    if (res.success) {
+      return res.data
+    } else {
+      message.warning(res.msg)
+      return {}
+    }
+  })
+}
+```
