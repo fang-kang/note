@@ -38,17 +38,16 @@ github 地址：[https://github.com/oldj/SwitchHosts](https://github.com/oldj/Sw
 
 ![img](asserts/15.png)
 
-### 3.3 修改https.proxy
+### 3.3 修改 https.proxy
 
 ```bash
 git config --global https.proxy http://127.0.0.1:7890
 git config --global http.proxy http://127.0.0.1:7890
 ```
 
-### 3.4 重置https.proxy
+### 3.4 重置 https.proxy
 
 ```bash
-git config --global --unset http.proxy 
-git config --global --unset https.proxy 
+git config --global --unset http.proxy
+git config --global --unset https.proxy
 ```
-
