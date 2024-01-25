@@ -1,3 +1,5 @@
+# splice、split、slice 三者之间的区别
+
 ## 1. split（字符串的方法，切割字符串）
 
 ```javascript
@@ -56,8 +58,7 @@ console.log(str.slice(3, -6)) // A
 
 （1）语法： str.slice(beginIndex, endIndex)
 （2）参数：
-**beginIndex**：从该索引（以 0 为基数）处开始提取原字符串中的字符。如果值为负数，会被当做 strLength + beginIndex 看待，这里的 strLength 是字符串的长度（例如，如果 beginIndex 是 -3 则看作是：strLength - 3）
-**endIndex**
+**beginIndex**：从该索引（以 0 为基数）处开始提取原字符串中的字符。如果值为负数，会被当做 strLength + beginIndex 看待，这里的 strLength 是字符串的长度（例如，如果 beginIndex 是 -3 则看作是：strLength - **endIndex**
 可选。在该索引（以 0 为基数）处结束提取字符串。如果省略该参数，slice() 会一直提取到字符串末尾。如果该参数为负数，则被看作是 strLength + endIndex，这里的 strLength 就是字符串的长度 (例如，如果 endIndex 是 -3，则是，strLength - 3)。
 （3）返回值：返回一个从原字符串中提取出来的新字符串。
 （4）注意点：两个参数的值虽然为整数，但也可以为其他，但是为其他会返回所有字符。
@@ -127,27 +128,27 @@ Array.slice(start, end)
 ```javascript
 // 参数1
 // 1.1若为负值，从数组的最后面（-1）算起，超过了数组的长度，也就是获取整个数组
-console.log(array.splice(-1)); // ['小明']
-console.log(array.splice(-3)); // ['沈七', '王八', '小明']
-console.log(array.splice(-7)); // ['张三', '李四', '王五', '赵六', '沈七', '王八', '小明']
-console.log(array.splice(-100)); // ['张三', '李四', '王五', '赵六', '沈七', '王八', '小明']
+console.log(array.splice(-1)) // ['小明']
+console.log(array.splice(-3)) // ['沈七', '王八', '小明']
+console.log(array.splice(-7)) // ['张三', '李四', '王五', '赵六', '沈七', '王八', '小明']
+console.log(array.splice(-100)) // ['张三', '李四', '王五', '赵六', '沈七', '王八', '小明']
 
 // 1.2若为0，获取整个数组
-console.log(array.splice(0)); // ['张三', '李四', '王五', '赵六', '沈七', '王八', '小明']
+console.log(array.splice(0)) // ['张三', '李四', '王五', '赵六', '沈七', '王八', '小明']
 
 // 1.3若为正整数，获取整个数组，超过了数组的长度，返回空数组或在数组末尾添加内容
-console.log(array.splice(1)); //  ['李四', '王五', '赵六', '沈七', '王八', '小明']
-console.log(array.splice(5)); // ['王八', '小明']
-console.log(array.splice(100)); // []
+console.log(array.splice(1)) //  ['李四', '王五', '赵六', '沈七', '王八', '小明']
+console.log(array.splice(5)) // ['王八', '小明']
+console.log(array.splice(100)) // []
 
 // 参数2
 // 2.1若为负值或0，不移除元素
-console.log(array.splice(3, 0)); // []
+console.log(array.splice(3, 0)) // []
 
 // 2.2 如果deleteCount大于start之后的元素的总数，则从start后面的元素都将被删除（含第 start 位）
-console.log(array.splice(1,2)); // ['李四', '王五']
-console.log(array.splice(1,7)); // ['李四', '王五', '赵六', '沈七', '王八', '小明']
-console.log(array.splice(1,10)); // ['李四', '王五', '赵六', '沈七', '王八', '小明']
+console.log(array.splice(1, 2)) // ['李四', '王五']
+console.log(array.splice(1, 7)) // ['李四', '王五', '赵六', '沈七', '王八', '小明']
+console.log(array.splice(1, 10)) // ['李四', '王五', '赵六', '沈七', '王八', '小明']
 ```
 
 > splice 方法会改变原数组。所以每次定义的原数组只能进行一次测试。
