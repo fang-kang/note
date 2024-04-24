@@ -3,7 +3,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from 'unocss/vite'
 import { presetAttributify, presetIcons, presetTypography, presetUno } from 'unocss'
 import { SearchPlugin } from 'vitepress-plugin-search'
-import { VitePluginVitepressDemo } from 'vite-plugin-vitepress-demo'
+import { vitepressDemo } from 'vite-plugin-vitepress-demo'
 import flexSearchIndexOptions from 'flexsearch'
 import { resolve } from 'path'
 
@@ -14,7 +14,7 @@ export default defineConfig((env: ConfigEnv) => {
     },
     plugins: [
       vueJsx(),
-      VitePluginVitepressDemo({ glob: './**/demo/**/*.{vue,jsx,tsx,js,ts}' }),
+      vitepressDemo({ glob: './**/demo/**/*.{vue,jsx,tsx,js,ts}' }),
       Unocss({
         shortcuts: [
           [

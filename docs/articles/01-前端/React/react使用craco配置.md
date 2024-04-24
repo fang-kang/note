@@ -258,3 +258,93 @@ module.exports = {
   },
 }
 ```
+
+### 3.7 配置打包文件带时间后缀
+
+```js
+const CracoLessPlugin = require('craco-less')
+
+const path = require('path')
+
+const dayjs = require('dayjs')
+
+const packageDateObj = new Date()
+const packageTime = dayjs(packageDateObj).format('YYYYMMDDHHmmss')
+
+const namePath = `${packageTime}-[name]`
+
+module.exports = {
+  webpack: {
+    alias: {
+      '@': path.resolve('src'),
+    },
+    configure: (webpackConfig, { env, paths }) => {
+      const isEnvProduction = env === 'production'
+
+      const addTimeStampToCss = () => {
+        if (webpackConfig.plugins) {
+          const miniCssExtractPlugin = webpackConfig.plugins.find(
+            plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+          )
+          if (miniCssExtractPlugin) {
+            miniCssExtractPlugin.options.filename = `static/css/${namePath}.css`
+            miniCssExtractPlugin.options.chunkFilename = `static/css/${namePath}.css`
+          }
+        }
+      }
+
+      webpackConfig.resolve.extensions = ['.jsx', '.js', '.tsx', '.ts', '.less', '.css']
+
+      webpackConfig.optimization.splitChunks = {
+        ...webpackConfig.optimization.splitChunks,
+        cacheGroups: {
+          commons: {
+            chunks: 'initial',
+            minChunks: 2,
+            maxInitialRequests: 5,
+            minSize: 0,
+            name: 'chunk-commons',
+          },
+          vendor: {
+            test: /node_modules/,
+            chunks: 'initial',
+            name: 'vendor',
+            priority: 10,
+            enforce: true,
+          },
+        },
+        chunks: 'all',
+      }
+
+      webpackConfig.devtool = isEnvProduction ? false : 'source-map'
+
+      if (isEnvProduction) {
+        webpackConfig.output.filename = `static/js/${namePath}.js`
+        webpackConfig.output.chunkFilename = `static/js/${namePath}.js`
+        addTimeStampToCss()
+      }
+
+      return webpackConfig
+    },
+  },
+  plugins: [
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { '@primary-color': '#1DA57A' },
+            javascriptEnabled: true,
+          },
+        },
+      },
+    },
+    {
+      plugin: require('craco-scoped-less'), // 若使用css或scss可不安装和引入该依赖
+    },
+  ],
+  babel: {
+    plugins: [['@babel/plugin-proposal-decorators', { legacy: true }]],
+  },
+}
+```

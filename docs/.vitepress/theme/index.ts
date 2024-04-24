@@ -19,11 +19,11 @@ export default {
   enhanceApp({ app, router }) {
     if (typeof window === 'undefined') return
 
-    watch(
-      () => router.route.data.relativePath,
-      () => updateHomePageStyle(location.pathname === '/'),
-      { immediate: true }
-    )
+    // watch(
+    //   () => router.route.data.relativePath,
+    //   () => updateHomePageStyle(location.pathname === '/'),
+    //   { immediate: true }
+    // )
 
     app.use(ElementPlus)
     app.component('Demo', AntdTheme)
