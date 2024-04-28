@@ -19,7 +19,7 @@ Table 数据的每一列需要行高相同，组件内部取第一条数据的�
 ## 需要优化的代码
 
 ```js
-import 'Table' from 'antd';
+import { Table } from 'antd'
 
 <Table
   columns={columns}
@@ -27,11 +27,10 @@ import 'Table' from 'antd';
   onExpand={this.onExpand}
   expandedRowKeys={expandedRowKeys}
   rowKey={'id'}
-  scroll={{y: '55vh'}}
+  scroll={{ y: '55vh' }}
   pagination={false}
   loading={loading}
 />
-
 ```
 
 ## 安装 [virtuallist-antd](https://github.com/crawler-django/virtuallist-antd)
