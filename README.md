@@ -1,3 +1,3 @@
 # note
 
-This is my personal note
+This is my personal note.
